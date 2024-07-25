@@ -28,7 +28,9 @@ function createForm() {
       // conditionally unwraps it with suspense if its a promise
       if (prop in loader) {
         if (loader[prop] instanceof Promise) {
-          return use(loader[prop]);
+          const result = use(loader[prop]);
+
+          record[prop] = result;
         }
         return loader[prop];
       }
