@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Suspense, use } from "react";
+import { Suspense, use, useMemo } from "react";
 import "./App.css";
 
 function sleep(ms: number) {
@@ -47,7 +47,7 @@ function createForm() {
 }
 
 export default function App() {
-  const form = createForm();
+  const form = useMemo(() => createForm(), []);
 
   return (
     <div>
